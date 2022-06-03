@@ -1,0 +1,5 @@
+body {
+    /* background-color: rgba(112, 11, 82, 0.8); */
+    background-image: url("../src/images/banner.svg");
+    background-repeat: no-repeat;
+}
