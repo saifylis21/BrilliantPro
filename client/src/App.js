@@ -1,21 +1,33 @@
 import React from 'react';
-
-
-
 import LoginPage from './components/LoginPage';
+import Dumb from './components/Dumb';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
+import Layout from './hoc/Layout';
 
 const App = () => {
 
   return (
     <>
-      <div>
+      <Layout>
+        <Switch>
+          <Route path="/dumb" exact component={Dumb} />
+          <Route path="/" exact component={LoginPage} />
+
+          <Redirect to="/" />
+        </Switch>
+      </Layout>
+
+
+
+
+      {/* <div>
 
         <LoginPage />
         
-      </div>
+      </div> */}
     </>
   );
 };
 
-export default App;
+export default withRouter(App);

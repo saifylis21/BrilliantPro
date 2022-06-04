@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid, Button, TextField } from '@material-ui/core';
+import { Container, Grow, Grid, Button, TextField } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
 import Posts from './Posts/Posts';
 import Form from './Form/Form';
 import { getPosts } from '../actions/posts';
-import useStyles from '../styles';
-import picture from '../images/saif.jpg';
 
 const LoginPage = () => {
     const [loggedIn, setLoggedIn] = useState(false)
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
-    const classes = useStyles();
 
     useEffect(() => {
         dispatch(getPosts());
     }, [currentId, dispatch]);
     return (
         <>
-
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">Saif API</Typography>
-                <img className={classes.image} src={picture} alt="icon" height="60" />
-            </AppBar>
-
-            <div style={{ margin: '20px' }}>
+        <div style={{ margin: '20px' }}>
                 <div>
                     <TextField
                         label="UserName"
@@ -65,9 +56,6 @@ const LoginPage = () => {
                         </Container>
                     </Grow>
                 </Container>
-
-
-
             }
         </>
 
