@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginPage from './components/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import Dumb from './components/Dumb';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 

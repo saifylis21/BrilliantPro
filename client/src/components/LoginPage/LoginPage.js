@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grow, Grid, Button, TextField } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
-import Posts from './Posts/Posts';
-import Form from './Form/Form';
-import { getPosts } from '../actions/posts';
+import Posts from '../Posts/Posts';
+import Form from '../Form/Form';
+import { getPosts } from '../../actions/posts';
+import classes from './LoginPage.module.css';
 
 const LoginPage = () => {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -16,20 +17,28 @@ const LoginPage = () => {
     }, [currentId, dispatch]);
     return (
         <>
-        <div style={{ margin: '20px' }}>
-                <div>
-                    <TextField
-                        label="UserName"
-                    />
-                    <TextField
-                        label="Password"
-                    />
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                    <Button color='primary' variant='contained' onClick={() => setLoggedIn(true)}>Log In</Button>
-                    <Button color='primary' variant='contained' onClick={() => setLoggedIn(false)}>Log Out</Button>
-                </div>
+        {/* <div style={{ margin: '20px' }}>
+            <div>
+                <TextField
+                    label="UserName"
+                />
+                <TextField
+                    label="Password"
+                />
             </div>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Button color='primary' variant='contained' onClick={() => setLoggedIn(true)}>Log In</Button>
+                <Button color='primary' variant='contained' onClick={() => setLoggedIn(false)}>Log Out</Button>
+            </div>
+        </div> */}
+
+
+        <div className={classes.LoginPage}>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <Button color='primary' variant='contained' onClick={() => setLoggedIn(true)}>Log In</Button>
+                <Button color='primary' variant='contained' onClick={() => setLoggedIn(false)}>Log Out</Button>
+            </div>
+
             {loggedIn ?
                 <Container maxWidth="lg">
                     <Grow in>
@@ -57,6 +66,7 @@ const LoginPage = () => {
                     </Grow>
                 </Container>
             }
+        </div>
         </>
 
     )
