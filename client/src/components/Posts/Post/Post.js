@@ -24,7 +24,7 @@ const Post = ({ post, setCurrentId }) => {
         <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /></Button>
       </div>
       <div className={classes.details}>
-        <Typography variant="body2" color="textSecondary" component="h2"><a href={`https:${post.tags}`} target="_blank" rel="noopener noreferrer">{post.tags}</a></Typography>
+        <Typography variant="body2" color="textSecondary" component="h2"><a href={`${post.tags}`} target="_blank" rel="noopener noreferrer">{post.tags}</a></Typography>
       </div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>
       <CardContent>

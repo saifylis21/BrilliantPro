@@ -1,6 +1,7 @@
 import React from 'react';
-import LoginPage from './components/LoginPage/LoginPage';
-import Dumb from './components/Dumb';
+import Home from './components/Home/Home';
+import Auth from './components/Auth/Auth';
+import Logout from './components/Navigation/Logout/Logout';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import Layout from './hoc/Layout';
@@ -11,21 +12,13 @@ const App = () => {
     <>
       <Layout>
         <Switch>
-          <Route path="/dumb" exact component={Dumb} />
-          <Route path="/" exact component={LoginPage} />
+          <Route path="/logout" exact component={Logout} />
+          <Route path="/auth" exact component={Auth} />
+          <Route path="/" exact component={Home} />
 
           <Redirect to="/" />
         </Switch>
       </Layout>
-
-
-
-
-      {/* <div>
-
-        <LoginPage />
-        
-      </div> */}
     </>
   );
 };

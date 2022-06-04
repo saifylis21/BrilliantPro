@@ -1,45 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grow, Grid, Button, TextField } from '@material-ui/core';
+import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import { useGlobalState } from '../../state.js';
 
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import { getPosts } from '../../actions/posts';
-import classes from './LoginPage.module.css';
+import classes from './Home.module.css';
 
-const LoginPage = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+const Home = () => {
     const [currentId, setCurrentId] = useState(0);
     const dispatch = useDispatch();
+
+    const [isLoggedIn] = useGlobalState("isLoggedIn");
+    const [role] = useGlobalState("role");
+
+    console.log('isloggedin ->', isLoggedIn, 'role ->', role);
 
     useEffect(() => {
         dispatch(getPosts());
     }, [currentId, dispatch]);
     return (
         <>
-        {/* <div style={{ margin: '20px' }}>
-            <div>
-                <TextField
-                    label="UserName"
-                />
-                <TextField
-                    label="Password"
-                />
-            </div>
-            <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <Button color='primary' variant='contained' onClick={() => setLoggedIn(true)}>Log In</Button>
-                <Button color='primary' variant='contained' onClick={() => setLoggedIn(false)}>Log Out</Button>
-            </div>
-        </div> */}
 
+        <div className={classes.Home}>
 
-        <div className={classes.LoginPage}>
-            <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                <Button color='primary' variant='contained' onClick={() => setLoggedIn(true)}>Log In</Button>
-                <Button color='primary' variant='contained' onClick={() => setLoggedIn(false)}>Log Out</Button>
-            </div>
-
-            {loggedIn ?
+            {isLoggedIn && role === "Admin" ?
                 <Container maxWidth="lg">
                     <Grow in>
                         <Container>
@@ -54,6 +40,7 @@ const LoginPage = () => {
                         </Container>
                     </Grow>
                 </Container>
+
                 : <Container maxWidth="lg">
                     <Grow in>
                         <Container>
@@ -72,4 +59,4 @@ const LoginPage = () => {
     )
 }
 
-export default LoginPage
+export default Home
