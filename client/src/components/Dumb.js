@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Dumb = () => (
-    <h1>shaza is an influencer she is so cool everyone should die only shaza should live. </h1>
+    <h1>saif is so cool everyone should die only saif should live. bring ur prado. bring me a gift also. i am sending u clothes i want. :</h1>
 );
 
 export default Dumb;
