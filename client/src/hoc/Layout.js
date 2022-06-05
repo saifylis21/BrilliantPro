@@ -7,12 +7,8 @@ const Layout = (props) => {
 
     return (
         <>
-            {/* <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">Saif API</Typography>
-                <img className={classes.image} src={picture} alt="icon" height="60" />
-            </AppBar> */}
             <header className={classes.Layout}>
-                <div>logo</div>
+                <div><h1>BrilliantPro.</h1></div>
                 <NavigationItems />
             </header>
         

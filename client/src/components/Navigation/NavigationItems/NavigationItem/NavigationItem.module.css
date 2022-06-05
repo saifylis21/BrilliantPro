@@ -12,8 +12,10 @@
     font-weight: bold;
 }
 
-.NavigationItem a:hover,
-.NavigationItem a:active,
-.NavigationItem a.active {
+.NavigationItem a:hover {
+    border-bottom: 4px solid #3f51b5;
+}
+
+.active {
     border-bottom: 4px solid #3f51b5;
 }
